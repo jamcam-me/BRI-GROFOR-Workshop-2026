@@ -12,7 +12,12 @@ Professional workshop proposal page for GROFOR e.V. (171 members) covering:
 
 ## Deployment
 
-Deployed on Vercel: [URL will be added after deployment]
+**Production URL:** https://grofor-bri-ai-workshop.vercel.app
+
+- German (default): https://grofor-bri-ai-workshop.vercel.app
+- English: https://grofor-bri-ai-workshop.vercel.app/en.html
+
+**Analytics Dashboard:** https://vercel.com/bri-team/grofor-workshop-2026/analytics
 
 ## Contact
 
