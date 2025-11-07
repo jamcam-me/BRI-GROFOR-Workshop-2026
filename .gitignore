@@ -1,0 +1,13 @@
+# BRI Internal Files - NEVER COMMIT
+.bri/
+session-meta-capture.jsonl
+**/session-meta-capture.jsonl
+
+# Environment
+.env
+.env.local
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
