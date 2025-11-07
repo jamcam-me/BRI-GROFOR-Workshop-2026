@@ -12,3 +12,4 @@ session-meta-capture.jsonl
 .DS_Store
 Thumbs.db
 .vercel
+node_modules/
