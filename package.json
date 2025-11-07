@@ -1,0 +1,8 @@
+{
+  "name": "grofor-workshop-2026",
+  "version": "1.0.0",
+  "description": "GROFOR AI Workshop 2026 - Professional landing page",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  }
+}

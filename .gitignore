@@ -11,3 +11,4 @@ session-meta-capture.jsonl
 # OS
 .DS_Store
 Thumbs.db
+.vercel
