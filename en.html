@@ -138,6 +138,88 @@
             margin-top: 30px;
         }
 
+        /* Partner Header */
+        .partner-header {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr 1fr;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(180deg, white 0%, rgba(10, 31, 68, 0.02) 100%);
+            border-bottom: 4px solid var(--gold-700);
+            box-shadow: 0 2px 8px rgba(10, 31, 68, 0.1);
+            margin: -40px -20px 40px -20px;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .partner-header-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .partner-header-left img {
+            max-height: 70px;
+            max-width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+        }
+
+        .partner-header-center {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .partner-header-center h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy-700);
+            margin: 0;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+
+        .partner-header-center .subtitle {
+            font-size: 1rem;
+            color: var(--gold-700);
+            font-weight: 600;
+            margin-top: 0.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .partner-header-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .partner-header-right img {
+            max-height: 70px;
+            max-width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+        }
+
+        @media (max-width: 768px) {
+            .partner-header {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .partner-header-left,
+            .partner-header-right {
+                justify-content: center;
+            }
+
+            .partner-header-left img,
+            .partner-header-right img {
+                max-height: 50px;
+            }
+        }
+
         /* Typography */
         h1, h2, h3, h4 {
             font-family: 'Cinzel', serif;
@@ -564,6 +646,20 @@
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
+    <!-- Partner Header -->
+    <div class="partner-header">
+        <div class="partner-header-left">
+            <img src="assets/grofor-logo.png" alt="GROFOR Logo">
+        </div>
+        <div class="partner-header-center">
+            <h1>AI Workshop for GROFOR Members</h1>
+            <div class="subtitle">Practical AI Enablement | January 2026</div>
+        </div>
+        <div class="partner-header-right">
+            <img src="assets/bri-logo.svg" alt="Big Rock Intelligence Logo">
+        </div>
+    </div>
+
     <!-- Language Switcher -->
     <div class="language-switcher">
         <a href="index.html">DE</a>
