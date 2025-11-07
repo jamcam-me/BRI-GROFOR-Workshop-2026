@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROFOR KI-Workshop - Proposal - Big Rock Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* BRI Brand Colors */
+        :root {
+            /* Navy Family */
+            --navy-900: #0A1F44;
+            --navy-800: #0F2952;
+            --navy-700: #14335F;
+            --navy-600: #193D6D;
+            --navy-500: #1E477A;
+            --navy-400: #3A5F8F;
+
+            /* Gold Family */
+            --gold-900: #8B6914;
+            --gold-800: #9F7719;
+            --gold-700: #B3851E;
+            --gold-600: #C79323;
+            --gold-500: #DBA128;
+            --gold-400: #E5B550;
+
+            /* Green Family */
+            --green-900: #1B4D3E;
+            --green-800: #205A48;
+            --green-700: #256752;
+            --green-600: #2A745C;
+            --green-500: #2F8166;
+            --green-400: #52997E;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+            --gradient-gold: linear-gradient(135deg, var(--gold-700) 0%, var(--gold-500) 100%);
+            --gradient-executive: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-600) 50%, var(--gold-800) 100%);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: var(--navy-900);
+            background: white;
+        }
+
+        /* Print Optimization */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            .avoid-break {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: A4;
+                margin: 1.5cm 2cm;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 2cm;
+            background: white;
+        }
+
+        /* Partner Header */
+        .partner-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem 2rem;
+            background: white;
+            border-bottom: 3px solid var(--gold-600);
+            page-break-inside: avoid;
+        }
+
+        .partner-header-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .partner-header-left img {
+            max-height: 60px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .partner-header-center {
+            text-align: center;
+        }
+
+        .partner-header-center h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .partner-header-center .subtitle {
+            font-size: 0.9rem;
+            color: var(--gold-700);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        .partner-header-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .partner-header-right img {
+            max-height: 60px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            min-height: 22cm;
+            background: var(--gradient-executive);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4cm 2cm;
+            margin: 0 -2cm;
+            margin-bottom: 2cm;
+        }
+
+        .cover-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+            color: var(--gold-400);
+        }
+
+        .cover-company {
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 4rem;
+            color: var(--gold-500);
+        }
+
+        .cover-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .cover-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: var(--gold-400);
+        }
+
+        .cover-details {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+        }
+
+        .cover-detail {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cover-detail-label {
+            font-size: 0.85rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .cover-detail-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Headers */
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--gold-600);
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-family: 'Jost', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy-700);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Pricing Cards */
+        .pricing-section {
+            margin: 2rem 0;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            page-break-inside: avoid;
+        }
+
+        .pricing-card h3 {
+            color: var(--gold-400);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold-400);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price-detail {
+            font-size: 0.9rem;
+            color: var(--gold-500);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 1rem 0;
+            padding-left: 0;
+        }
+
+        .pricing-card li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .pricing-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold-400);
+            font-weight: 700;
+        }
+
+        .pricing-card .not-included {
+            opacity: 0.6;
+        }
+
+        .pricing-card .not-included::before {
+            content: '✗';
+            color: var(--gold-600);
+        }
+
+        .pricing-breakdown {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+        }
+
+        .pricing-breakdown p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            page-break-inside: avoid;
+        }
+
+        th {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid var(--navy-700);
+        }
+
+        td {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr.highlight {
+            background: linear-gradient(90deg, rgba(219, 161, 40, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+            font-weight: 600;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            page-break-inside: avoid;
+        }
+
+        .info-box h3 {
+            color: var(--gold-400);
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, var(--gold-900) 0%, var(--gold-700) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            page-break-inside: avoid;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .bio-section h2 {
+            color: var(--gold-400);
+            margin-top: 0;
+        }
+
+        .bio-section h3 {
+            color: var(--gold-500);
+            font-family: 'Jost', sans-serif;
+        }
+
+        .bio-section ul {
+            margin: 1rem 0;
+        }
+
+        .bio-section li {
+            margin: 0.75rem 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--gradient-executive);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: var(--gold-400);
+            margin-top: 0;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--gold-600);
+            font-size: 0.9rem;
+            color: var(--navy-600);
+        }
+
+        .bri-signature {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--gold-700);
+        }
+
+        /* Strong Text */
+        strong {
+            color: var(--navy-900);
+            font-weight: 600;
+        }
+
+        /* Emphasis Boxes */
+        .emphasis {
+            background: linear-gradient(90deg, rgba(219, 161, 40, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+            border-left: 4px solid var(--gold-600);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-weight: 500;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-col h3 {
+            color: var(--navy-900);
+        }
+
+        .comparison-col ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .comparison-col li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin: 0.5rem 0;
+        }
+
+        .comparison-col li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold-600);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Partner Header -->
+    <div class="partner-header">
+        <div class="partner-header-left">
+            <img src="assets/grofor-logo.png" alt="GROFOR Logo">
+        </div>
+        <div class="partner-header-center">
+            <h1>KI-Workshop für GROFOR Mitglieder</h1>
+            <div class="subtitle">Praktisches AI-Enablement | Januar 2026</div>
+        </div>
+        <div class="partner-header-right">
+            <img src="assets/bri-logo.svg" alt="Big Rock Intelligence Logo">
+        </div>
+    </div>
+
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <div class="cover-logo">BRI</div>
+        <div class="cover-company">Big Rock Intelligence</div>
+        <h1 class="cover-title">GROFOR KI-Workshop</h1>
+        <div class="cover-subtitle">Praktisches AI-Enablement für 171 Mitglieder</div>
+
+        <div class="cover-details">
+            <div class="cover-detail">
+                <span class="cover-detail-label">Format</span>
+                <span class="cover-detail-value">2 Workshops + Office Hours</span>
+            </div>
+            <div class="cover-detail">
+                <span class="cover-detail-label">Termine</span>
+                <span class="cover-detail-value">13. & 20. Januar 2026</span>
+            </div>
+            <div class="cover-detail">
+                <span class="cover-detail-label">Teilnehmer</span>
+                <span class="cover-detail-value">171 GROFOR Mitglieder</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Executive Summary -->
+        <div class="page-break"></div>
+        <h1>Executive Summary</h1>
+
+        <div class="emphasis">
+            <strong>Zwei interaktive Workshops + Office Hours</strong> — LLM-Grundlagen, Prompting-Techniken, Governance & Compliance, Live-Demos, und praxisnahe Umsetzung für Rohstoffhandel und B2B-Workflows.
+        </div>
+
+        <h2>Workshop-Struktur & Timeline</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Phase</th>
+                    <th style="width: 25%;">Zeitraum</th>
+                    <th style="width: 30%;">Aktivität</th>
+                    <th style="width: 25%;">Lieferbare</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3"><strong>Vorbereitung</strong></td>
+                    <td>16.-20. Dez 2025</td>
+                    <td>Vorab-Mitgliederumfrage & Inhaltsanpassung<br><em>[Rohstoffhandel, Öle/Fette-Logistik, B2B-Workflows]</em></td>
+                    <td>Umfrageergebnisse & Bedarfsanalyse</td>
+                </tr>
+                <tr>
+                    <td>23. Dez - 3. Jan</td>
+                    <td>GROFOR-spezifische Materialentwicklung: LLM-Grundlagen, Prompting-Techniken, Governance<br><em>[DSGVO, EU AI Act, Risikomanagement]</em></td>
+                    <td>Session 1 Materialien (Folien, Templates, Checklisten)</td>
+                </tr>
+                <tr>
+                    <td>6.-10. Jan 2026</td>
+                    <td>GROFOR-spezifische Materialentwicklung: LLM Use-Cases, Live-Demo Vorbereitung<br><em>[E-Mail, Dokumente, Datenanalyse, Übersetzung]</em></td>
+                    <td>Session 2 Materialien (Demo-Skripte, Prompt-Vorlagen, Roadmap)</td>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>Session 1</strong></td>
+                    <td><strong>Mo, 13. Jan 2026</strong></td>
+                    <td><strong>Grundlagen & Governance: LLM-Funktionsweise, Prompting Best Practices, Compliance</strong><br><em>[DSGVO, EU AI Act, Datenschutz] (10:00-12:00 MEZ)</em></td>
+                    <td>Live Workshop + Aufzeichnung + Q&A-Dokumentation</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>13.-17. Jan</td>
+                    <td>Implementierungs-Fragen nach Session 1<br><em>[LLM-Auswahl, Governance-Frameworks, Erste Schritte] (separater Tag)</em></td>
+                    <td>Implementierungsunterstützung (Alle Optionen)</td>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>Session 2</strong></td>
+                    <td><strong>Mo, 20. Jan 2026</strong></td>
+                    <td><strong>Praktische Anwendungen: LLM-Demos, Business Use-Cases, Umsetzung</strong><br><em>[Copilot-Demo, Prompting-Techniken, Workflow-Integration] (10:00-12:00 MEZ)</em></td>
+                    <td>Live Workshop + Aufzeichnung + Demo-Videos</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>20.-24. Jan</td>
+                    <td>Fortgeschrittenes Troubleshooting & Umsetzungsberatung<br><em>[Prompt-Optimierung, Team-Enablement, Skalierung] (separater Tag)</em></td>
+                    <td>Erweiterte Unterstützung (Option 1 & 2)</td>
+                </tr>
+                <tr>
+                    <td><strong>Nachbereitung</strong></td>
+                    <td>21. Jan+</td>
+                    <td>Materialverteilung: Folien, Prompt-Templates, LLM-Vergleichsmatrix, Roadmap<br><em>[Alle 171 Mitglieder]</em></td>
+                    <td>Vollständiges Materialpaket für alle Mitglieder</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Sessions Detail -->
+        <div class="page-break"></div>
+        <h1>Workshop-Inhalte</h1>
+
+        <div class="info-box avoid-break">
+            <h3>Session 1 - Montag, 13. Januar 2026 (10:00-12:00 MEZ)</h3>
+            <h3 style="color: white; margin-top: 0;">Grundlagen & Governance</h3>
+
+            <p><strong>Erste Stunde: KI-Tools verstehen</strong></p>
+            <ul>
+                <li>Welche KI-Tools existieren (ChatGPT, Copilot, Claude, Perplexity)</li>
+                <li>Integration mit Bürosoftware (M365, Google, SAP, DATEV)</li>
+                <li>Praktische Prompting-Techniken (Live-Beispiele)</li>
+                <li>Reale Büro-Use-Cases</li>
+            </ul>
+
+            <p><strong>Zweite Stunde: Compliance & Governance</strong></p>
+            <ul>
+                <li>DSGVO und Datenschutz-Grundlagen für KI-Nutzung</li>
+                <li>EU AI Act Essentials (Compliance ohne Komplexität)</li>
+                <li>Risikomanagement: Was man mit KI im Business nicht tun sollte</li>
+                <li>KI-Governance in der Organisation aufbauen</li>
+            </ul>
+
+            <p><strong>Interaktives Q&A während der gesamten Sitzung</strong></p>
+        </div>
+
+        <p><strong>Office Hours 1</strong> (Woche 13.-17. Januar, separater Tag)<br>
+        Implementierungs-Fragen nach Sitzung 1 | <em>Enthalten in allen Optionen</em></p>
+
+        <div class="info-box avoid-break">
+            <h3>Session 2 - Montag, 20. Januar 2026 (10:00-12:00 MEZ)</h3>
+            <h3 style="color: white; margin-top: 0;">Praktische Anwendungen & Umsetzung</h3>
+
+            <p><strong>Erste Stunde: Use-Cases & Live-Demos</strong></p>
+            <ul>
+                <li>10 Büro-Use-Cases (E-Mail, Meetings, Dokumente, Daten, Übersetzung)</li>
+                <li>Live-Demonstrationen (Echtzeit):
+                    <ul>
+                        <li>Power Automate Workflow-Automatisierung</li>
+                        <li>Excel + Copilot für Datenanalyse</li>
+                        <li>Automatisierte E-Mail-Antworten</li>
+                    </ul>
+                </li>
+                <li>Prompting Best Practices mit Copy-Paste-Beispielen</li>
+            </ul>
+
+            <p><strong>Zweite Stunde: Umsetzung</strong></p>
+            <ul>
+                <li>Quick Wins für Montagmorgen</li>
+                <li>Implementierungs-Roadmap (Schritt-für-Schritt-Leitfaden)</li>
+                <li>AI-Arbeitsgruppen innerhalb GROFOR aufbauen</li>
+                <li>Häufige Fehler vermeiden</li>
+            </ul>
+
+            <p><strong>Interaktives Q&A während der gesamten Sitzung</strong></p>
+        </div>
+
+        <p><strong>Office Hours 2</strong> (Woche 20.-24. Januar, separater Tag)<br>
+        Fortgeschrittene Fragen & Troubleshooting | <em>Enthalten in Option 1 & 2 | Optional in Option 3 (+€1.000)</em></p>
+
+        <!-- Pricing -->
+        <div class="page-break"></div>
+        <h1>Drei Preisoptionen</h1>
+
+        <div class="pricing-section">
+            <div class="pricing-card avoid-break">
+                <h3>OPTION 1: VOLLPAKET</h3>
+                <div class="price">€9.000</div>
+                <div class="price-detail">171 Mitglieder = €53/Mitglied</div>
+
+                <p><strong>Was enthalten ist:</strong></p>
+                <ul>
+                    <li>2× Live-Workshops (je 2 Std., 13. & 20. Jan)</li>
+                    <li>2× Office Hours (separate Tage)
+                        <ul style="list-style: none; padding-left: 1.5rem;">
+                            <li>Woche 13.-17. Jan: Implementierungs-Fragen</li>
+                            <li>Woche 20.-24. Jan: Fortgeschrittenes Troubleshooting</li>
+                        </ul>
+                    </li>
+                    <li>Professionelle Materialien:
+                        <ul style="list-style: none; padding-left: 1.5rem;">
+                            <li>2 Sitzungs-Foliensätze</li>
+                            <li>Schnellreferenzleitfaden (1-Seite Cheat-Sheet)</li>
+                            <li>10 Prompt-Vorlagen (E-Mail, Meetings, Dokumente, Daten, Recherche)</li>
+                            <li>Tool-Vergleichsmatrix (ChatGPT, Copilot, Claude, Perplexity)</li>
+                            <li>Implementierungs-Roadmap (Schritt-für-Schritt-Leitfaden)</li>
+                        </ul>
+                    </li>
+                    <li>Compliance-Essentials:
+                        <ul style="list-style: none; padding-left: 1.5rem;">
+                            <li>EU AI Act Compliance-Checkliste</li>
+                            <li>DSGVO-Nutzungsrichtlinien (Vorlagenpolitiken)</li>
+                            <li>Datenklassifizierungs-Framework (3-Stufen-System)</li>
+                        </ul>
+                    </li>
+                    <li>Vorab-Workshop-Mitgliederumfrage & Inhaltsanpassung</li>
+                    <li>Alle Materialien in BRI-Vorlagen (skalierbar, wiederverwendbar)</li>
+                </ul>
+
+                <div class="pricing-breakdown">
+                    <p><strong>Regulärer Preis:</strong> €10.000</p>
+                    <p><strong>Nachlass (über Basti):</strong> -€1.000 (10%)</p>
+                    <p style="font-size: 1.1rem; margin-top: 0.5rem;"><strong>Ihr Preis: €9.000</strong></p>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Nachlass gültig bis: 15. November 2025</strong></p>
+            </div>
+
+            <div class="pricing-card avoid-break">
+                <h3>OPTION 2: STANDARD</h3>
+                <div class="price">€7.650</div>
+                <div class="price-detail">171 Mitglieder = €45/Mitglied</div>
+
+                <p><strong>Was enthalten ist:</strong></p>
+                <ul>
+                    <li>2× Live-Workshops (je 2 Std., 13. & 20. Jan)</li>
+                    <li>2× Office Hours (separate Tage)</li>
+                    <li>Professionelle Materialien:
+                        <ul style="list-style: none; padding-left: 1.5rem;">
+                            <li>2 Sitzungs-Foliensätze</li>
+                            <li>Schnellreferenzleitfaden</li>
+                            <li>10 Prompt-Vorlagen</li>
+                            <li>Tool-Vergleichsmatrix</li>
+                            <li>Implementierungs-Roadmap</li>
+                        </ul>
+                    </li>
+                    <li>Vorab-Workshop-Mitgliederumfrage & Inhaltsanpassung</li>
+                </ul>
+
+                <p><strong>NICHT enthalten:</strong></p>
+                <ul class="not-included">
+                    <li>Compliance-Essentials (EU AI Act, DSGVO, Datenklassifizierung)</li>
+                </ul>
+
+                <div class="pricing-breakdown">
+                    <p><strong>Regulärer Preis:</strong> €8.500</p>
+                    <p><strong>Nachlass (über Basti):</strong> -€850 (10%)</p>
+                    <p style="font-size: 1.1rem; margin-top: 0.5rem;"><strong>Ihr Preis: €7.650</strong></p>
+                </div>
+
+                <p style="margin-top: 1rem;"><em>Hinweis: Compliance-Materialien können später für €1.500 hinzugefügt werden.</em></p>
+            </div>
+
+            <div class="pricing-card avoid-break">
+                <h3>OPTION 3: ESSENTIAL</h3>
+                <div class="price">€7.000</div>
+                <div class="price-detail">171 Mitglieder = €41/Mitglied</div>
+
+                <p><strong>Was enthalten ist:</strong></p>
+                <ul>
+                    <li>2× Live-Workshops (je 2 Std., 13. & 20. Jan)</li>
+                    <li>1× Office Hours (Ihre Wahl welche Woche)</li>
+                    <li>Kern-Materialien:
+                        <ul style="list-style: none; padding-left: 1.5rem;">
+                            <li>2 Sitzungs-Foliensätze</li>
+                            <li>Schnellreferenzleitfaden</li>
+                            <li>10 Prompt-Vorlagen</li>
+                            <li>Tool-Vergleichsmatrix</li>
+                            <li>Implementierungs-Roadmap</li>
+                        </ul>
+                    </li>
+                    <li>Vorab-Workshop-Mitgliederumfrage & Inhaltsanpassung</li>
+                </ul>
+
+                <p><strong>NICHT enthalten:</strong></p>
+                <ul class="not-included">
+                    <li>2. Office Hours Session</li>
+                    <li>Compliance-Essentials</li>
+                </ul>
+
+                <div class="pricing-breakdown">
+                    <p><strong>Regulärer Preis:</strong> €7.800</p>
+                    <p><strong>Nachlass (über Basti):</strong> -€800 (10%)</p>
+                    <p style="font-size: 1.1rem; margin-top: 0.5rem;"><strong>Ihr Preis: €7.000</strong></p>
+                </div>
+
+                <p style="margin-top: 1rem;"><em>Hinweis: 2. Office Hours kann später für €1.000 hinzugefügt werden. Compliance-Materialien €1.500.</em></p>
+            </div>
+        </div>
+
+        <!-- Optional Add-Ons -->
+        <div class="page-break"></div>
+        <h1>Optionale Erweiterungen</h1>
+        <p style="font-style: italic; margin-bottom: 1.5rem;">Jederzeit verfügbar</p>
+
+        <h3>Bilinguale Materialien (Deutsch + Englisch) - €1.200</h3>
+        <p>Alle Liefergegenstände ins Deutsche übersetzt. Hilfreich, wenn Ihre deutschsprachigen Mitglieder deutsche Dokumentation bevorzugen.</p>
+
+        <h3>GROFOR-Angepasste Use-Cases - €2.000</h3>
+        <p>Branchenspezifisches Playbook für Rohstoffhandel, Öle/Fette-Logistik, B2B-Workflows üblich bei Ihren Mitgliedern. Erfordert Vorab-Workshop-Interviews mit 3-5 Mitgliedsunternehmen.</p>
+
+        <h3>30-Tage Post-Workshop-Support - €1.500</h3>
+        <p>E-Mail/Chat-Support für alle 171 Mitglieder für 30 Tage nach Sitzung 2. Best-Effort-Antwort auf Implementierungs-Fragen, Troubleshooting, Ressourcen-Updates. Wenn Mitglieder einen Gruppen-Chat einrichten, wird James überwachen und antworten. Hält die Dynamik aufrecht ohne vollständiges Beratungsengagement.</p>
+
+        <h3>Individuelle Office Hours - €1.000 pro Session</h3>
+        <p>Zusätzliche 1-Stunden-Office-Hours-Sitzungen können jederzeit hinzugefügt werden. Großartig für Folgefragen oder fortgeschrittene Themen.</p>
+
+        <!-- Payment Terms -->
+        <h2>Zahlungsbedingungen</h2>
+
+        <div class="warning-box avoid-break">
+            <p><strong>Zahlungsoptionen:</strong></p>
+            <ul>
+                <li><strong>Einmalzahlung:</strong> Netto 30 (ab erstem Liefertermin: 13. Januar 2026)</li>
+                <li><strong>Teilzahlung:</strong> 50% vor Session 1, 50% vor Session 2 — Netto 14 ab jeweiligem Liefertermin</li>
+                <li>Kundenspezifische Zahlungsbedingungen verfügbar (mit James besprechen)</li>
+            </ul>
+        </div>
+
+        <!-- Facilitator Bio -->
+        <div class="page-break"></div>
+        <h1>Der Business-Pionier hinter dem Programm</h1>
+
+        <div class="bio-section avoid-break">
+            <h2>James Cameron</h2>
+            <p style="font-size: 1.1rem; color: var(--gold-400); margin-bottom: 2rem;">Gründer, Big Rock Intelligence, Frankfurt am Main</p>
+
+            <h3>Wer Sie bekommen</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;"><strong>Keinen Workshop-Trainer. Einen Business-Pionier, der Enterprise Advisory Services für die größten Cloud- und Beratungsanbieter der Welt aufgebaut UND direkt an Kunden geliefert hat.</strong></p>
+
+            <p style="font-size: 1rem; margin-bottom: 2rem;"><strong>25 Jahre Aufbau und Lieferung unternehmensweiter Advisory-Services an die größten bis kleinsten Kunden weltweit - in jeder Branche - während er Business Units bei Microsoft, AWS und Avanade leitete.</strong></p>
+
+            <h3>Was ich gebaut habe</h3>
+
+            <p><strong>Microsoft (2008-2019):</strong></p>
+            <ul>
+                <li><strong>Portfolio-Eigentümer:</strong> 36-Service Cybersecurity-Portfolio aufgebaut und direkt an Fortune-500 bis Mittelstand geliefert ($31M+ Jahresumsatz)</li>
+                <li><strong>Globale Lieferung:</strong> Services persönlich an Kunden in allen Branchen weltweit geliefert (Finanzen, Fertigung, Logistik, Handel, öffentlicher Sektor)</li>
+                <li><strong>Team-Skalierung:</strong> Globale Engineering-Teams aufgebaut - ermöglichte Hunderte von Professionals zur Lieferung bei Enterprise-Kunden</li>
+                <li><strong>Business-Unit-Führung:</strong> 50-77% Portfolio-Wachstum Jahr für Jahr als Eigentümer des globalen Service-Portfolios</li>
+            </ul>
+
+            <p><strong>Amazon Web Services (2019-2022):</strong></p>
+            <ul>
+                <li><strong>Produkt-Entwickler:</strong> AWS Managed Services von Konzept mitgebaut und an Enterprise-Kunden geliefert - jetzt globales Produkt für Tausende von Kunden</li>
+                <li><strong>Kundenlieferung:</strong> Direkte Onboarding- und Migration-Services für regulierte Branchen (Finanzen, Healthcare, Government)</li>
+                <li><strong>Business-Unit-Führung:</strong> Engineering, Partner und Kunden-Success-Teams für AMS-Launch und Skalierung geführt</li>
+            </ul>
+
+            <p><strong>Avanade (2022-2024):</strong></p>
+            <ul>
+                <li><strong>Praxis-Eigentümer:</strong> European Security Advisory Praxis von Grund auf aufgebaut und an DAX-Unternehmen geliefert</li>
+                <li><strong>Kundenberatung:</strong> Board-Level Security & AI Advisory für Europas größte Unternehmen (alle Branchen)</li>
+                <li><strong>Business-Unit-Führung:</strong> Einnahmen verdoppelt als Leiter der europäischen Advisory-Praxis</li>
+            </ul>
+        </div>
+
+        <div class="emphasis avoid-break">
+            <h3>Warum das für GROFOR wichtig ist</h3>
+            <p><strong>Sie bekommen nicht jemanden, der Workshops moderiert. Sie bekommen jemanden, der:</strong></p>
+            <ul>
+                <li>Services aufgebaut UND direkt an Kunden geliefert hat - von Fortune 500 bis Mittelstand, in jeder Branche weltweit</li>
+                <li>Business Units bei den größten Cloud- und Beratungsanbietern der Welt geleitet hat (Microsoft, AWS, Avanade)</li>
+                <li>Service-Portfolios von $0 auf $31M+ skaliert hat als Portfolio-Eigentümer</li>
+                <li>Persönlich mit Tausenden von Kunden in allen Branchen gearbeitet hat (Finanzen, Fertigung, Logistik, Healthcare, Government)</li>
+                <li>Versteht, wie man komplexe Technologie für reale Business-Teams umsetzbar macht - aus 25 Jahren direkter Lieferung</li>
+            </ul>
+            <p><strong>Frankfurt-ansässig.</strong> Versteht deutschen Geschäftskontext und regulatorische Anforderungen (DSGVO, EU AI Act, deutsche Förderprogramme).</p>
+        </div>
+
+        <h3>Qualifikationen</h3>
+
+        <p><strong>Ausbildung:</strong></p>
+        <ul>
+            <li>Berkeley Haas Executive Education: AI Executive Business Strategy, Venture Capital Executive</li>
+            <li>St. Francis Xavier University: Bachelor of Information Systems</li>
+        </ul>
+
+        <p><strong>Zertifizierungen:</strong></p>
+        <ul>
+            <li>AWS Certified Security - Specialty | AWS Solutions Architect</li>
+            <li>CISSP (Certified Information Systems Security Professional)</li>
+            <li>Microsoft Certified Professional</li>
+        </ul>
+
+        <p><strong>Auszeichnungen:</strong></p>
+        <ul>
+            <li>Avanade Executive Leading Voices Program (Security & AI)</li>
+            <li>ASD Battleground Winner - Microsoft Services (2018)</li>
+            <li>Microsoft Talent Program (2011-2017)</li>
+        </ul>
+
+        <div class="emphasis avoid-break">
+            <h3>Das Ergebnis für Sie</h3>
+            <p><strong>Keine Theorie. Keine akademischen Vorträge. 25 Jahre direkte Lieferung an Kunden in jeder Branche - von Fortune 500 bis KMU - während er Business Units bei den größten Cloud- und Beratungsanbietern der Welt leitete.</strong></p>
+            <p>Sie kaufen die Expertise, mit der die größten Tech-Unternehmen der Welt ihre Kunden beliefert haben - jetzt direkt für Ihre 171 GROFOR-Mitglieder verfügbar.</p>
+        </div>
+
+        <!-- What Makes This Different -->
+        <div class="page-break"></div>
+        <h1>Was das anders macht</h1>
+
+        <div class="comparison">
+            <div class="comparison-col">
+                <h3>Die meisten AI-Workshops:</h3>
+                <ul>
+                    <li>Generischer Inhalt (nicht auf Ihre Branche zugeschnitten)</li>
+                    <li>Theoretischer Fokus (interessant, aber nicht umsetzbar)</li>
+                    <li>Kein Follow-up (Sie sind nach der Sitzung auf sich allein gestellt)</li>
+                    <li>Präsentator hat akademischen Hintergrund (begrenzte reale Erfahrung)</li>
+                </ul>
+            </div>
+
+            <div class="comparison-col">
+                <h3>BRI's Ansatz:</h3>
+                <ul>
+                    <li>Angepasst an Ihre Mitglieder (Vorab-Workshop-Umfrage formt Inhalt)</li>
+                    <li>Praktischer Fokus (Live-Demos, Copy-Paste-Vorlagen, Montagmorgen-Aktionen)</li>
+                    <li>Office Hours & Support (fortlaufende Hilfe bei der Umsetzung)</li>
+                    <li>Moderator mit 25 Jahren Fortune-500-Erfahrung (reale Kampfnarben)</li>
+                    <li>BRI-Vorlagen (skalierbar, wiederverwendbar, professionelle Qualität)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="emphasis avoid-break" style="margin-top: 2rem; text-align: center; font-size: 1.2rem;">
+            <p><strong>Sie kaufen keine Vorlesung. Sie kaufen ein praktisches Enablement-Programm.</strong></p>
+        </div>
+
+        <!-- Next Steps -->
+        <h2>Nächste Schritte</h2>
+
+        <p>Wenn das für GROFOR passt:</p>
+        <ol>
+            <li>Welche Option macht für euch am meisten Sinn?</li>
+            <li>Zahlungsstruktur: Einmalzahlung (Netto 30) oder Teilzahlung (Netto 14)?</li>
+            <li>Termine 13. & 20. Januar – funktionieren die noch?</li>
+        </ol>
+
+        <p>Fragen? Ruf mich an oder antworte auf die E-Mail.</p>
+
+        <!-- Contact -->
+        <div class="contact-section avoid-break">
+            <h2>Kontakt</h2>
+            <div class="contact-info">
+                <p><strong>James Cameron</strong></p>
+                <p>Big Rock Intelligence</p>
+                <p>Frankfurt am Main, Deutschland</p>
+                <p style="margin-top: 1rem;">
+                    <strong>Telefon:</strong> +49 1511 0515242<br>
+                    <strong>E-Mail:</strong> james@bigrock-intel.ai
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Klassifizierung:</strong> BRI_CLIENT_PROPOSAL</p>
+            <p><strong>Kunde:</strong> GROFOR e.V. | <strong>Kontakt:</strong> Stephanie Kröger</p>
+            <p><strong>Pursuit-Status:</strong> Hot Pursuit (Qualified To Buy)</p>
+            <p><strong>Erwarteter Abschluss:</strong> 15. November 2025 (Nachlass-Frist)</p>
+            <p><strong>Deal-Wert:</strong> €7.000-€9.000 (initial) + €10.000-€30.000 (12-Monats-Potenzial)</p>
+
+            <div class="bri-signature">
+                🪨🏔️ Authored by BRI | ⚡ Powered by Claude Code
+            </div>
+        </div>
+    </div>
+</body>
+</html>
